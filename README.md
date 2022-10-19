@@ -12,12 +12,12 @@ https://github.com/Whoopsunix/fastjson_study
 https://github.com/Whoopsunix/PPPVULNS
 
 + 值得留意的文章
-> https://github.com/LeadroyaL/fastjson-blacklist fastjson黑白名单
-> https://github.com/safe6Sec/Fastjson  目前最全的poc合集
-> https://github.com/su18/hack-fastjson-1.2.80 1.2.80 POC
-> https://github.com/safe6Sec/Fastjson 1.2.80 poc含环境
-> https://mp.weixin.qq.com/s/5mO1L5o8j_m6RYM6nO-pAA  版本区分
-> https://b1ue.cn/archives/506.html 浅蓝博客
++  https://github.com/LeadroyaL/fastjson-blacklist fastjson黑白名单
++  https://github.com/safe6Sec/Fastjson  目前最全的poc合集
++  https://github.com/su18/hack-fastjson-1.2.80 1.2.80 POC
++  https://github.com/safe6Sec/Fastjson 1.2.80 poc含环境
++  https://mp.weixin.qq.com/s/5mO1L5o8j_m6RYM6nO-pAA  版本区分
++  https://b1ue.cn/archives/506.html 浅蓝博客
 
 # fastjson <=1.2.24 反序列化代码执行
 ## JdbcRowSetImpl

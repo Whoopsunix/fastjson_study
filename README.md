@@ -6,17 +6,20 @@ fastjson复现简单、调用链多，很多时候反而更像是在看其他组
 
 所以起了个项目记录自己复现过的POC，顺便记录pom依赖，毕竟找环境还是挺麻烦的
 
-后续poc 环境 分析文章在 github 同步
+后续poc 环境 分析文章在 github 同步  
 https://github.com/Whoopsunix/fastjson_study
 
-# 环境见
-https://github.com/Whoopsunix/PPPVULNS
+# 环境
+[环境](https://github.com/Whoopsunix/PPPVULNS/tree/master/fastjsonDemo)
 
 # json框架区分、dnslog、版本探测、利用链探测
 [fastjson check](fastjsonCheck/fastjsonCheck.md)
 
 # 全版本poc合集
 [1.2.24-1.2.80 poc](recurring.md)
+
+# bypass
+[bypass](bypass/bypass.md)
 
 # 感谢以下师傅的研究
 +  https://github.com/LeadroyaL/fastjson-blacklist fastjson黑白名单

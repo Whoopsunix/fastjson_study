@@ -1,8 +1,8 @@
 # json框架区分
 给定正常对象 User
 ```java
-public class User {  
-    String username;  
+public class User {
+    String username;
     int password;
     float id;
 }
@@ -14,17 +14,17 @@ public class User {
 
 ## fstjson
 1. 浮点精度不丢失
-其他 json 解析库在解析json时都会丢失，但fastjson不会，但是
+   其他 json 解析库在解析json时都会丢失，但fastjson不会，但是
 ```json
 {"username":"1234","password":1.111111111111111111111111111111111,"id":1.1111111111111111111111111111111111111}
 ```
 2. 响应状态
-如果是fastjson会对@type做出响应
+   如果是fastjson会对@type做出响应
 ```json
 {"@type":"whatever"}
 ```
 3. DNSLOG
-DNSLOG 这种方式可以无回显探测fastjson，是较为高效的一种方法，但不适用于不出网环境，具体探测方式在后文展开
+   DNSLOG 这种方式可以无回显探测fastjson，是较为高效的一种方法，但不适用于不出网环境，具体探测方式在后文展开
 ```json
 {"x":{"@type":"java.net.InetSocketAddress"{"address":,"val":"dnslog"}}}
 ```
@@ -45,12 +45,12 @@ DNSLOG 这种方式可以无回显探测fastjson，是较为高效的一种方�
 
 ## gson
 1. 浮点无法转整数 报错
-向 int 类型的值传浮点数无法解析会报错 NumberFormatException
+   向 int 类型的值传浮点数无法解析会报错 NumberFormatException
 ```json
 {"username":"1234","password":1.111111111111111111111111111111111,"id":1}
 ```
 2. 特有解析
-org.json 与 gson 在遇到 # 时都会当注释符处理，可以用来识别这两个框架
+   org.json 与 gson 在遇到 # 时都会当注释符处理，可以用来识别这两个框架
 ```json
 #\n{"username":"1234","password":1,"id":1.1}
 ```
@@ -61,13 +61,13 @@ org.json 与 gson 在遇到 # 时都会当注释符处理，可以用来识别�
 
 ## org.json
 1. 特有解析
-org.json 打印会调用 toString() 所以可以插入 `\n \r`等字符改变输出，如结合前面的 `#` 再加上 `\r`
+   org.json 打印会调用 toString() 所以可以插入 `\n \r`等字符改变输出，如结合前面的 `#` 再加上 `\r`
 ```json
 #{"username":"\r"}
 ```
 
 
-## 实测案例
+## 举例实测案例
 ## fastjson
 对于某正常登陆接口
 ![](attachments/Pasted%20image%2020221114152732.png)
@@ -108,7 +108,7 @@ org.json 打印会调用 toString() 所以可以插入 `\n \r`等字符改变输
 ```
 
 # fastjson版本探测
-## 精确版本号
+## 精确版本号1
 有报错回显的情况下，返回精确版本号
 ```json
 {
@@ -117,9 +117,19 @@ org.json 打印会调用 toString() 所以可以插入 `\n \r`等字符改变输
 
 ![](attachments/Pasted%20image%2020221118153949.png)
 
+## 精确版本号2
+对于存在 FastJsonHttpMessageConverter 配置的解析，通常指定了key值或json结构，可通过添加`[]`等方式破坏既定结构，实例：
+```json
+[
+{
+  "@type": "whatever"
+}
+]
+```
+![](attachments/Pasted%20image%2020221124153332.png)
 ## dnslog
 在没有回显的情况下，如果可以出网就要考虑dnslog了
-前文提到1.2.24版本不会解析 `java.net.URL`，而在之前的研究中，1.2.47、1.2.68、1.2.80是漏洞的三个里程碑版本，通过`java.lang.Class`、`java.lang.AutoCloseable`、`java.lang.Exception` 来构造dns可以准确识别
+前文提到1.2.24版本不会解析 `java.net.URL`，而在之前的研究中，1.2.47、1.2.68、1.2.80是漏洞的三个里程碑版本，通过`java.lang.Class`、`java.lang.AutoCloseable`、`java.lang.Exception` 来构造dns请求可以准确识别
 
 
 payload向下兼容版本，
@@ -197,7 +207,7 @@ payload向下兼容版本，
 
 # 利用链探测
 ## Character 报错回显
-存在时会回显
+探测到存在的类时将 Class 强转为 Char 导致报错回显
 ```json
 {
   "x": {

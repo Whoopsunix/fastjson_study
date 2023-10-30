@@ -8,8 +8,9 @@ fastjson复现简单、调用链多，很多时候反而更像是在看其他组
 
 所以起了个项目记录自己复现过的POC，顺便记录pom依赖，毕竟找环境还是挺麻烦的
 
-后续poc 环境 分析文章在 github 同步  
-https://github.com/Whoopsunix/fastjson_study
+~~后续poc 环境 分析文章在 github 同步  https://github.com/Whoopsunix/fastjson_study~~
+
+备份笔记的时候发现很多后面实测案例都丢掉了 分项目维护起来很麻烦 之后有更改都写到 [博客](https://whoopsunix.com/#/docs/components/cves/fastjson/README) 里去了
 
 # 环境
 
